@@ -1,0 +1,1 @@
+swipl -q -s different.pl -g main
