@@ -53,6 +53,10 @@ father(Father, Child) :-
     male(Father),
     parent(Father, Child).
 
+% Define offspring
+offspring(Child, Parent) :-
+    parent(Parent, Child).
+
 % Define daughter
 daughter(Daughter, Parent) :-
     female(Daughter),
@@ -83,10 +87,12 @@ grandfather(Grandfather, Child) :-
 grandchild(Grandchild, Grandparent) :-
     grandparent(Grandparent, Grandchild).
 
-% Define sibling. Two people are siblings if they share at least one parent.
+% Define sibling. Two people are siblings if they share both parents.
 sibling(Sibling1, Sibling2) :-
-    parent(Parent, Sibling1),
-    parent(Parent, Sibling2),
+    father(Parent1, Sibling1),
+    father(Parent1, Sibling2),
+    mother(Parent2, Sibling1),
+    mother(Parent2, Sibling2),
     Sibling1 \= Sibling2.
 
 % Define brother
