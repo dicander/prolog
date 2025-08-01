@@ -1,7 +1,8 @@
 isprime(N) :-
-    %either N is 2 or 
+    % The only even prime is a base case 
     N is 2.
 isprime(N) :-
+    % Second base case for the first odd prime.
     N is 3.
 isprime(N) :-
     N > 3,
