@@ -1,12 +1,8 @@
-isprime(N) :-
-    % The only even prime is a base case 
-    N is 2.
-isprime(N) :-
-    % Second base case for the first odd prime.
-    N is 3.
+isprime(2).
+isprime(3).
 isprime(N) :-
     N > 3,
-    N /\ 1 =:= 1,
+    N /\ 1 =:= 1, % Check if N is odd, don't you just love that bitwise AND syntax?
     \+ has_factor(N, 3).
 
 has_factor(N, F) :-

@@ -54,7 +54,7 @@ father(Father, Child) :-
     parent(Father, Child).
 
 % Define offspring
-offspring(Child, Parent) :-
+child(Child, Parent) :-
     parent(Parent, Child).
 
 % Define daughter
@@ -67,6 +67,10 @@ son(Son, Parent) :-
     male(Son),
     parent(Parent, Son).
 
+% Define descendant, recursively
+descend(X,Y) :- child(X,Y).
+descend(X,Y) :- child(X,Z),
+    descend(Z,Y).
 
 % Define grandparent
 grandparent(Grandparent, Grandchild) :-
@@ -105,4 +109,7 @@ sister(Sibling1, Sibling2) :-
     sibling(Sibling1, Sibling2),
     female(Sibling1).
 
-
+% Some interesting queries are:
+% findall(Child, child(Child, Parent), Z), write(Z).
+% bagof(Child, descend(Child, Parent), Z),write(Z).
+% setof(Child, descend(Child, Parent), Z),write(Z).

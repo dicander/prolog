@@ -1,6 +1,15 @@
+combine1([], [], []).
+combine1([H1|T1], [H2|T2], [H1, H2|Rest]) :- 
+    combine1(T1, T2, Rest).
+
+
 combine2([], [], []).
-combine2([H1|T1], [H2|T2], [H1, H2|Rest]) :- 
+combine2([H1|T1], [H2|T2], [[H1, H2]|Rest]) :- 
     combine2(T1, T2, Rest).
+
+combine3([], [], []).
+combine3([H1|T1], [H2|T2], [join(H1, H2)|Rest]) :- 
+    combine3(T1, T2, Rest).
 
 
 % This function should add one to each element in a list
