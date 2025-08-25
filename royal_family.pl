@@ -113,3 +113,8 @@ sister(Sibling1, Sibling2) :-
 % findall(Child, child(Child, Parent), Z), write(Z).
 % bagof(Child, descend(Child, Parent), Z),write(Z).
 % setof(Child, descend(Child, Parent), Z),write(Z).
+% Some ways to find all Mothers.
+% setof(M, D^mother(M,D), Mothers).
+% findall(Mother, mother(Mother, Daughter), Z), list_to_set(Z, X), write(X).
+% use_module(library(aggregate)).
+% aggregate_all(set(M), mother(M,_), Mothers).
