@@ -21,11 +21,13 @@ complete(branch(TL, TR)) :-
 
 lookup(D, leaf(D)).
 lookup(D, branch(D, _, _)).
-lookup(D, branch(_, TL, _)) :- lookup(D, TL).
-lookup(D, branch(_, _, TR)) :- lookup(D, TR).
+lookup(D, branch(_, TL, _)) :- 
+    lookup(D, TL).
+lookup(D, branch(_, _, TR)) :- 
+    lookup(D, TR).
 
 treesum(leaf(N), N).
 treesum(branch(N, TL, TR), N1) :-
-treesum(TL, NL),
-treesum(TR, NR),
-N1 is NL+NR+N.
+    treesum(TL, NL),
+    treesum(TR, NR),
+    N1 is NL+NR+N.
