@@ -1,15 +1,8 @@
-permsort(In, Out) :-
-    permutation(In, Out),
-    sorted(Out).
-
-
-my_permutation([], []).
-my_permutation([H|T], P) :-
-    my_permutation(T, PT),
-    select(H, P, PT).
-
-my_sorted([]).
-my_sorted([_]).
-my_sorted([A, B | Rest]) :-
-    A =< B,
-    my_sorted([B | Rest]).
+permSort(X,Y):-
+    permutation(X,Y), % generera en permutation
+    sorted(Y). % testa om sorterad
+sorted([]).
+sorted([_]).
+sorted([X,Y|L]) :-
+    X =< Y ,
+sorted([Y|L]).
